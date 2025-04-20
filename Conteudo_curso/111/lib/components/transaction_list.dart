@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/transaction.dart';
+import '../models/transaction.dart';
 import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
@@ -25,17 +25,17 @@ class TransactionList extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Theme.of(context).colorScheme.primary,
+                      color: Colors.purple,
                       width: 2,
                     ),
                   ),
                   padding: const EdgeInsets.all(10),
                   child: Text(
                     'R\$ ${tr.value.toStringAsFixed(2)}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Theme.of(context).colorScheme.primary,
+                      color: Colors.purple,
                     ),
                   ),
                 ),
@@ -51,7 +51,9 @@ class TransactionList extends StatelessWidget {
                     ),
                     Text(
                       DateFormat('d MMM y').format(tr.date),
-                      style: const TextStyle(color: Colors.grey),
+                      style: const TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
                   ],
                 ),

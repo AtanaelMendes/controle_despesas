@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
- // atanael
 
 class TransactionForm extends StatefulWidget {
   final void Function(String, double) onSubmit;
