@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'components/transaction_user.dart'; // atanael
+import 'components/transaction_user.dart';
 
 main() => runApp(const ExpensesApp());
 
@@ -20,7 +20,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Despesas Pessoais'),
         actions: [IconButton(icon: const Icon(Icons.add), onPressed: () {})],
-        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';  // atanael
+import 'package:flutter/material.dart';
 
 class TransactionForm extends StatelessWidget {
   final titleController = TextEditingController();
