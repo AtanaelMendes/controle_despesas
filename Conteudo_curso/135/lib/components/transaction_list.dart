@@ -12,14 +12,14 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: 430,
       child: transactions.isEmpty
           ? Column(
-                children: <Widget>[
-                  SizedBox(height: 20),
+              children: [
+                const SizedBox(height: 20),
                 Text(
-                    'Nenhuma transação cadastrada',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  'Nenhuma Transação Cadastrada!',
+                  style: Theme.of(context).textTheme.headline6,
                 ),
                 const SizedBox(height: 20),
                 SizedBox(
@@ -37,7 +37,10 @@ class TransactionList extends StatelessWidget {
                 final tr = transactions[index];
                 return Card(
                   elevation: 5,
-                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 5,
+                  ),
                   child: ListTile(
                     leading: CircleAvatar(
                       backgroundColor: Colors.purple,
@@ -47,21 +50,23 @@ class TransactionList extends StatelessWidget {
                         child: FittedBox(
                           child: Text(
                             'R\$${tr.value}',
-                              style: const TextStyle(color: Colors.white),
+                            style: const TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),
                     ),
                     title: Text(
                       tr.title,
-                      style: Theme.of(context).textTheme.titleLarge,
+                      style: Theme.of(context).textTheme.headline6,
                     ),
                     subtitle: Text(
                       DateFormat('d MMM y').format(tr.date),
                     ),
                     trailing: IconButton(
                       icon: const Icon(Icons.delete),
-                      color: Theme.of(context).colorScheme.error,
+                      color: Theme.of(context).errorColor,
                       onPressed: () => onRemove(tr.id),
                     ),
                   ),
