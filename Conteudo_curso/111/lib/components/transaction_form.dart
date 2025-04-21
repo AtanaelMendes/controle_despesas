@@ -47,13 +47,13 @@ class TransactionForm extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 TextButton(
+                  onPressed: _submitForm,
                   child: const Text(
                     'Nova Transação',
                     style: TextStyle(
                       color: Colors.purple,
                     ),
                   ),
-                  onPressed: _submitForm,
                 )
               ],
             ),

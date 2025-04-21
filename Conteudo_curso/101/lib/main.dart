@@ -42,8 +42,8 @@ class MyHomePage extends StatelessWidget {
           const SizedBox(
             child: Card(
               color: Colors.blue,
-              child: Text('Gráfico'),
               elevation: 5,
+              child: Text('Gráfico'),
             ),
           ),
           Column(

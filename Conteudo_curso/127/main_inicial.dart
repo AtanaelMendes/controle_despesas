@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,18 +33,18 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
           Container(
             height: 100,
-            child: const Text('Item 1 - pretty big!'),
             color: Colors.red,
+            child: const Text('Item 1 - pretty big!'),
           ),
           Container(
             height: 100,
-            child: const Text('Item 2'),
             color: Colors.blue,
+            child: const Text('Item 2'),
           ),
           Container(
             height: 100,
-            child: const Text('Item 3'),
             color: Colors.orange,
+            child: const Text('Item 3'),
           ),
         ],
       ),

@@ -5,7 +5,7 @@ import 'transaction_list.dart';
 import '../model/transaction.dart';  // atanael
 
 class TransactionUser extends StatefulWidget {
-  const TransactionUser({Key? key}) : super(key: key);
+  const TransactionUser({super.key});
 
   @override
   State<TransactionUser> createState() => _TransactionUserState();

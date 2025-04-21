@@ -28,8 +28,8 @@ class MyHomePage extends StatelessWidget {
             SizedBox(
               child: Card(
                 color: Colors.blue,
-                child: Text('Gráfico'),
                 elevation: 5,
+                child: Text('Gráfico'),
               ),
             ),
             TransactionUser(),
