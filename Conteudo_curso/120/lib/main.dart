@@ -1,9 +1,9 @@
-// import 'package:expenses/components/transaction_form.dart';
+import 'package:expenses/components/transaction_form.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
-import 'model/transaction.dart';
+import 'models/transaction.dart';
 
 main() => runApp(ExpensesApp());
 
@@ -21,7 +21,7 @@ class ExpensesApp extends StatelessWidget {
           secondary: Colors.amber,
         ),
         textTheme: tema.textTheme.copyWith(
-          titleLarge: const TextStyle(
+          headline6: const TextStyle(
             fontFamily: 'OpenSans',
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -91,20 +91,19 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
         title: const Text('Despesas Pessoais'),
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () => _openTransactionFormModal(context),
-            ),
-          ],
-        ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
-        child: Column( 
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-              const SizedBox(
+            const SizedBox(
               child: Card(
                 color: Colors.blue,
                 child: Text('Gráfico'),
