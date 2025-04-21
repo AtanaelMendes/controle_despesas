@@ -1,10 +1,10 @@
-// import 'package:expenses/components/transaction_form.dart';
+import 'package:expenses/components/transaction_form.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
 import 'components/chart.dart';
-import 'model/transaction.dart';
+import 'models/transaction.dart';
 
 main() => runApp(ExpensesApp());
 
@@ -112,9 +112,9 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () => _openTransactionFormModal(context),
-            ),
-          ],
-        ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
