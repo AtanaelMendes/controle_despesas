@@ -12,7 +12,7 @@ class TransactionList extends StatelessWidget {
     return SizedBox(
       height: 300,
       child: transactions.isEmpty
-      ? Column(
+        ? Column(
           children: [
             const SizedBox(height: 20),
             Text(
@@ -28,55 +28,40 @@ class TransactionList extends StatelessWidget {
               ),
             ),
           ],
-      )
-      : ListView.builder(
-        itemCount: transactions.length,
-        itemBuilder: (ctx, index) {
-          final tr = transactions[index];
-          return Card(
-            child: Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 10,
-                  ),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Theme.of(context).colorScheme.primary,
-                      width: 2,
-                    ),
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Text(
-                    'R\$ ${tr.value.toStringAsFixed(2)}',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Theme.of(context).colorScheme.primary,
+        )
+        : ListView.builder(
+          itemCount: transactions.length,
+          itemBuilder: (ctx, index) {
+            final tr = transactions[index];
+            return Card(
+              elevation: 5,
+              margin: const EdgeInsets.symmetric(
+                vertical: 8,
+                horizontal: 5,
+              ),
+              child: ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.purple,
+                  radius: 30,
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: FittedBox(
+                      child: Text(
+                        'R\$${tr.value}',
+                        style: const TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      tr.title,
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    Text(
-                      DateFormat('d MMM y').format(tr.date),
-                      style: const TextStyle(
-                        color: Colors.grey,
-                        ),
-                    ),
-                  ],
+                title: Text(
+                  tr.title,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-              ],
-            ),
-          );
-        },
-      ),
+                subtitle: Text(DateFormat('d MMM y').format(tr.date)),
+              ),
+            );
+          },
+        ),
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../model/transaction.dart';
 import 'chart_bar.dart';
-// atanael
 
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransaction;
@@ -27,39 +26,24 @@ class Chart extends StatelessWidget {
         }
       }
 
-      return {
-        'day': DateFormat.E().format(weekDay)[0],
-        'value': totalSum,
-      };
-    });
-  }
-
-  double get _weekTotalValue {
-    return groupedTransactions.fold(0.0, (sum, tr) {
-      return sum + (tr['value'] as double);
+      return {'day': DateFormat.E().format(weekDay)[0], 'value': totalSum};
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    groupedTransactions;
     return Card(
       elevation: 6,
       margin: const EdgeInsets.all(20),
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: groupedTransactions.map((tr) {
-                return Flexible(
-                  fit: FlexFit.tight,
-                  child: ChartBar(
-                    label: tr['day'] as String,
-                    value: tr['value'] as double,
-                    percentage: (tr['value'] as double) / _weekTotalValue,
-                  ),
-                );
-              }).toList(),
-        ),
+      child: Row(
+        children: groupedTransactions.map((tr) {
+          return ChartBar(
+            label: tr['day'] as String,
+            value: tr['value'] as double,
+            percentage: 0.3,
+          );
+        }).toList(),
       ),
     );
   }
