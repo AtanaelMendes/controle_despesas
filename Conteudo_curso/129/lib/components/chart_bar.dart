@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 
 class ChartBar extends StatelessWidget {
-  final String label;
-  final double value;
-  final double percentage;
+  final String? label;
+  final double? value;
+  final double? percentage;
 
-  ChartBar({
+  const ChartBar({
     this.label,
     this.value,
     this.percentage,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: <Widget>[
-        Container(
+      children: [
+        SizedBox(
           height: 20,
           child: FittedBox(
-            child: Text('R\$${value.toStringAsFixed(2)}'),
+            child: Text('${value!.toStringAsFixed(2)}'),
           ),
         ),
-        SizedBox(height: 5),
-        Container(
+        const SizedBox(height: 5),
+        SizedBox(
           height: 60,
           width: 10,
           child: Stack(
@@ -34,7 +35,7 @@ class ChartBar extends StatelessWidget {
                     color: Colors.grey,
                     width: 1.0,
                   ),
-                  color: Color.fromRGBO(220, 220, 220, 1),
+                  color: const Color.fromRGBO(220, 220, 220, 1),
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
@@ -42,15 +43,16 @@ class ChartBar extends StatelessWidget {
                 heightFactor: percentage,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                ))
+                ),
+              ),
             ],
           ),
         ),
-        SizedBox(height: 5),
-        Text(label),
+        const SizedBox(height: 5),
+        Text(label!),
       ],
     );
   }
