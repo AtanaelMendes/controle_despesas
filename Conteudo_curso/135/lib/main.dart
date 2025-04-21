@@ -1,10 +1,10 @@
-// import 'package:expenses/components/transaction_form.dart';
+import 'package:expenses/components/transaction_form.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
 import 'components/chart.dart';
-import 'model/transaction.dart';
+import 'models/transaction.dart';
 
 main() => runApp(ExpensesApp());
 
@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
     showModalBottomSheet(
       context: context,
       builder: (_) {
-        return TransactionForm(_addTransaction as void Function(String p1, double p2));
+        return TransactionForm(_addTransaction);
       },
     );
   }
