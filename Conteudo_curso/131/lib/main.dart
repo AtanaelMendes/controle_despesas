@@ -1,4 +1,4 @@
-// import 'package:expenses/components/transaction_form.dart';
+import 'package:expenses/components/transaction_form.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'components/transaction_form.dart';
@@ -9,8 +9,7 @@ import 'model/transaction.dart';
 main() => runApp(ExpensesApp());
 
 class ExpensesApp extends StatelessWidget {
-  ExpensesApp({Key? key}) : super(key: key);
-  final ThemeData tema = ThemeData();
+  const ExpensesApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -84,30 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
       value: 11.30,
       date: DateTime.now(),
     ),
-    Transaction(
-      id: 't4',
-      title: 'Lanche',
-      value: 11.30,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't4',
-      title: 'Lanche',
-      value: 11.30,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't4',
-      title: 'Lanche',
-      value: 11.30,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't4',
-      title: 'Lanche',
-      value: 11.30,
-      date: DateTime.now(),
-    ),
   ];
 
   List<Transaction> get _recentTransactions {
@@ -118,12 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  _addTransaction(String title, double value, DateTime date) {
+  _addTransaction(String title, double value) {
     final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
       title: title,
       value: value,
-      date: date,
+      date: DateTime.now(),
     );
 
     setState(() {
@@ -137,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
     showModalBottomSheet(
       context: context,
       builder: (_) {
-        return TransactionForm(_addTransaction as void Function(String p1, double p2));
+        return TransactionForm(_addTransaction);
       },
     );
   }
@@ -146,7 +121,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
         title: const Text('Despesas Pessoais'),
         actions: [
           IconButton(

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../model/transaction.dart';
+import '../models/transaction.dart';
 import 'chart_bar.dart';
-// atanael
 
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransaction;
@@ -44,18 +43,17 @@ class Chart extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: groupedTransactions.map((tr) {
-                return Flexible(
-                  fit: FlexFit.tight,
-                  child: ChartBar(
-                    label: tr['day']! as String,
-                    value: tr['value']! as double,
-                    percentage: _weekTotalValue == 0
-                    ? 0
-                    : (tr['value'] as double) / _weekTotalValue,
-                  ),
-                );
-              }).toList(),
+          children:
+              groupedTransactions.map((tr) {
+            return Flexible(
+              fit: FlexFit.tight,
+              child: ChartBar(
+                label: (tr['day']! as String),
+                value: (tr['value']! as double),
+                percentage: (tr['value'] as double) / _weekTotalValue,
+              ),
+            );
+          }).toList(),
         ),
       ),
     );
