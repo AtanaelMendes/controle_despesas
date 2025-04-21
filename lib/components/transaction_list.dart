@@ -5,12 +5,12 @@ import 'package:intl/intl.dart';
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
 
-  const TransactionList(this.transactions, {super.key});
+  const TransactionList(this.transactions, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: MediaQuery.of(context).size.height,
       child:
           transactions.isEmpty
               ? Column(
@@ -20,7 +20,7 @@ class TransactionList extends StatelessWidget {
                     'Nenhuma transação cadastrada',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   SizedBox(
                     height: 200,
                     child: Image.asset(

@@ -5,10 +5,10 @@ class ChartBar extends StatelessWidget {
   final double value;
   final double percentage;
 
-  const ChartBar({super.key, 
-    this.label,
-    this.value,
-    this.percentage,
+  const ChartBar({super.key,
+    required this.label,
+    required this.value,
+    required this.percentage,
   });
 
   @override
@@ -21,7 +21,7 @@ class ChartBar extends StatelessWidget {
             child: Text('R\$${value.toStringAsFixed(2)}'),
           ),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         SizedBox(
           height: 60,
           width: 10,
@@ -34,7 +34,7 @@ class ChartBar extends StatelessWidget {
                     color: Colors.grey,
                     width: 1.0,
                   ),
-                  color: Color.fromRGBO(220, 220, 220, 1),
+                  color: const Color.fromRGBO(220, 220, 220, 1),
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
@@ -45,12 +45,13 @@ class ChartBar extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                ))
+                ),
+              ),
             ],
           ),
         ),
-        SizedBox(height: 5),
-        Text(label),
+        const SizedBox(height: 5),
+        Text(label!),
       ],
     );
   }
