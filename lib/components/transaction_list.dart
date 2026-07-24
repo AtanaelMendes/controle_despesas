@@ -7,13 +7,14 @@ class TransactionList extends StatelessWidget {
   final void Function(String) onRemove;
 
   const TransactionList(this.transactions, this.onRemove, {Key? key})
-      : super(key: key);
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height,
-      child: transactions.isEmpty
+      child:
+          transactions.isEmpty
               ? Column(
                 children: <Widget>[
                   SizedBox(height: 20),
@@ -40,13 +41,13 @@ class TransactionList extends StatelessWidget {
                     margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
                     child: ListTile(
                       leading: CircleAvatar(
-                        backgroundColor: Colors.purple,
-                        radius: 30,
+                        backgroundColor: Colors.purple[400],
+                        radius: 26,
                         child: Padding(
                           padding: const EdgeInsets.all(6),
                           child: FittedBox(
                             child: Text(
-                              'R\$${tr.value}',
+                              '${tr.value.toStringAsFixed(2)}',
                               style: const TextStyle(color: Colors.white),
                             ),
                           ),
@@ -56,9 +57,7 @@ class TransactionList extends StatelessWidget {
                         tr.title,
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      subtitle: Text(
-                        DateFormat('d MMM y').format(tr.date),
-                      ),
+                      subtitle: Text(DateFormat('d MMM y').format(tr.date)),
                       trailing: IconButton(
                         icon: const Icon(Icons.delete),
                         color: Theme.of(context).colorScheme.error,
