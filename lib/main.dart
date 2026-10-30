@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 main() => runApp(ExpensesApp());
 
 class ExpensesApp extends StatelessWidget {
-  ExpensesApp({Key? key}) : super(key: key);
+  ExpensesApp({super.key});
   final ThemeData tema = ThemeData();
 
   @override
@@ -51,7 +51,7 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

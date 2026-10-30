@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 class TransactionForm extends StatefulWidget {
   final void Function(String, double, DateTime) onSubmit;
 
-  const TransactionForm(this.onSubmit, {Key? key}) : super(key: key);
+  const TransactionForm(this.onSubmit, {super.key});
 
   @override
   State<TransactionForm> createState() => _TransactionFormState();
@@ -79,13 +79,13 @@ class _TransactionFormState extends State<TransactionForm> {
                     ),
                   ),
                   TextButton(
+                    onPressed: _showDatePicker,
                     child: const Text(
                       'Selecionar Data',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    onPressed: _showDatePicker,
                   )
                 ],
               ),
@@ -97,13 +97,13 @@ class _TransactionFormState extends State<TransactionForm> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.purple,
                   ),
+                  onPressed: _submitForm,
                   child: Text(
                     'Salvar',
                     style: TextStyle(
                       color: Theme.of(context).textTheme.labelLarge?.color,
                     ),
                   ),
-                  onPressed: _submitForm,
                 ),
               ],
             ),
