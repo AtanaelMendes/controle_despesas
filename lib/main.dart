@@ -185,7 +185,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(
           'Despesas Pessoais',
           style: TextStyle(
-            fontSize: 20 * MediaQuery.of(context).textScaleFactor,
+            fontSize: MediaQuery.textScalerOf(context).scale(20),
           ),
         ),
         actions: <Widget>[
